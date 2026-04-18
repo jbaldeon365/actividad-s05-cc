@@ -145,4 +145,3 @@ for i, r in enumerate(weather):
             st.markdown(f"**Presión:** {r.get('pressure', {}).get('value', '—')}")
             st.markdown(f"**Viento:** {r.get('wind', {}).get('speed', {}).get('rate', '—')}")
             st.markdown(f"**Visibilidad:** {r.get('visibility', {}).get('distance', {}).get('value', '—')}")
-```
