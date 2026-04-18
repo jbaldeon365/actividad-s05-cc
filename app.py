@@ -1,6 +1,7 @@
 import streamlit as st
 from pymongo import MongoClient
 import pandas as pd
+import re
 
 # ─── Configuración de página ───
 st.set_page_config(
@@ -68,7 +69,7 @@ if not station:
     st.stop()
 
 # ─── Consulta MongoDB ───
-query = {"st": {"$regex": station, "$options": "i"}}
+query = {"st": {"$regex": f"^{re.escape(station)}", "$options": "i"}}
 weather = list(col_weather.find(query).limit(limite))
 
 if not weather:
